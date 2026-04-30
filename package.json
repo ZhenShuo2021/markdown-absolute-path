@@ -44,7 +44,7 @@
 		"lint": "eslint src",
 		"test:unit": "tsx --tsconfig tsconfig.test.json --test src/test/regex.test.ts",
 		"format": "prettier --write --list-different .",
-		"package": "rm -r out && rm markdown-absolute-path-*.vsix && vsce package",
+		"package": "rm -r out && rm -f markdown-absolute-path-*.vsix && vsce package",
 		"publish": "vsce publish"
 	},
 	"devDependencies": {

@@ -20,3 +20,6 @@ out/test/
 pnpm-lock.yaml
 pnpm-workspace.yaml
 .prettierignore
+
+__mocks__/**
+tsconfig.test.json
