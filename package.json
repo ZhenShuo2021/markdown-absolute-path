@@ -1,0 +1,87 @@
+{
+	"name": "markdown-absolute-path",
+	"displayName": "Markdown-Absolute-Path",
+	"description": "Parse markdown absolute link with custom root",
+	"publisher": "ZhenShuo2021",
+	"repository": "https://github.com/ZhenShuo2021/markdown-absolute-path",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.116.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:markdown"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": {
+			"title": "Markdown Absolute Path",
+			"properties": {
+				"markdownAbsPath.rootDirs": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [],
+					"description": "Workspace-relative directories to search for absolute path links. e.g. [\"content\", \"static\"]"
+				},
+				"markdownAbsPath.hover.enable": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable hover preview for absolute path links. Shows image previews and text file contents on hover."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "pnpm run bundle",
+		"bundle": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --platform=node --minify",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "pnpm run compile && pnpm run lint",
+		"lint": "eslint src",
+		"test:unit": "tsx --tsconfig tsconfig.test.json --test src/test/regex.test.ts",
+		"format": "prettier --write --list-different .",
+		"package": "rm -r out && rm markdown-absolute-path-*.vsix && vsce package",
+		"publish": "vsce publish"
+	},
+	"devDependencies": {
+		"@types/markdown-it": "^14.1.2",
+		"@types/mocha": "^10.0.10",
+		"@types/node": "22.x",
+		"@types/vscode": "^1.116.0",
+		"@vscode/test-cli": "^0.0.12",
+		"@vscode/test-electron": "^2.5.2",
+		"esbuild": "^0.25.0",
+		"eslint": "^9.39.3",
+		"eslint-config-prettier": "^10.1.8",
+		"lint-staged": "^16.4.0",
+		"prettier": "^3.8.3",
+		"simple-git-hooks": "^2.13.1",
+		"tsx": "^4.21.0",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.56.1"
+	},
+	"simple-git-hooks": {
+		"pre-commit": "pnpm lint-staged"
+	},
+	"lint-staged": {
+		"*.ts": [
+			"prettier --write",
+			"eslint --fix"
+		],
+		"*.{json,mjs,md}": "prettier --write"
+	},
+	"prettier": {
+		"semi": true,
+		"singleQuote": true,
+		"printWidth": 100,
+		"trailingComma": "es5",
+		"useTabs": true,
+		"tabWidth": 2,
+		"endOfLine": "lf"
+	},
+	"packageManager": "pnpm@10.12.4"
+}
