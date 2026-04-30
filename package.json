@@ -4,7 +4,7 @@
 	"description": "Parse markdown absolute link with custom root",
 	"publisher": "ZhenShuo2021",
 	"repository": "https://github.com/ZhenShuo2021/markdown-absolute-path",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"engines": {
 		"vscode": "^1.116.0"
 	},
