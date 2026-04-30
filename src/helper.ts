@@ -30,7 +30,7 @@ export const LINK_REFDEF_RE = /^\s*\[[^\]]+\]:\s*(?:<([^>]+)>|([^>\s"']+))/gm;
  * `'/path'` / `"/path"`
  * Named group `sq`: single-quoted href. Named group `dq`: double-quoted href.
  */
-export const LINK_QUOTED_RE = /(?:'(?<sq>\/[^']+)'|"(?<dq>\/[^"]+)")/g;
+export const LINK_QUOTED_RE = /(?:'(?<sq>\/[^'\n]+)'|"(?<dq>\/[^"\n]+)")/g;
 
 /**
  * Detects whether the cursor (linePrefix) is inside a closed inline link href.
@@ -51,7 +51,7 @@ export const AUTOCOMPLETE_REFDEF_RE = /^\s*\[[^\]]+\]:\s*<?(\S*)$/;
  * Matches the last opening quote followed by the path typed so far.
  * Capture group 1: the path typed so far.
  */
-export const AUTOCOMPLETE_QUOTED_RE = /['"](\/[^'"]*)/;
+export const AUTOCOMPLETE_QUOTED_RE = /['"](\/[^'"\n]*)/;
 
 export function loadConfig(): void {
 	const cfg = vscode.workspace.getConfiguration('markdownAbsPath');
