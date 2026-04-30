@@ -29,7 +29,7 @@
 				},
 				"markdownAbsPath.hover.enable": {
 					"type": "boolean",
-					"default": false,
+					"default": true,
 					"description": "Enable hover preview for absolute path links. Shows image previews and text file contents on hover."
 				}
 			}

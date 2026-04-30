@@ -15,7 +15,7 @@ Resolves absolute paths in Markdown against configurable root directories, addin
 | Setting | Default | Description |
 |---|---|---|
 | `markdownAbsPath.rootDirs` | `[]` | Workspace-relative roots to search, e.g. `["content", "static", "public"]` |
-| `markdownAbsPath.hover.enable` | `false` | Enables path correction for link hover previews. Note: Due to VS Code API limitations, the built-in error preview and broken link will still persist. Enabling this implies acceptance of this behavior. |
+| `markdownAbsPath.hover.enable` | `true` | Enables path correction for link hover previews. |
 
 ## License
 
